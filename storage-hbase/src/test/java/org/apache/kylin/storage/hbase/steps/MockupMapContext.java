@@ -23,7 +23,6 @@ import java.net.URI;
 
 import org.apache.commons.lang.NotImplementedException;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.conf.Configuration.IntegerRanges;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.mapreduce.Counter;
@@ -44,10 +43,10 @@ import org.apache.kylin.engine.mr.common.BatchConstants;
 
 /**
  * @author yangli9
- * 
+ *
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class MockupMapContext implements  MapContext {
+public class MockupMapContext implements MapContext {
 
     private Configuration hconf;
 
@@ -60,7 +59,7 @@ public class MockupMapContext implements  MapContext {
         return new WrappedMapper().getMapContext(new MockupMapContext(hconf, outKV));
     }
 
-    public MockupMapContext(Configuration hconf, Object[] outKV){
+    public MockupMapContext(Configuration hconf, Object[] outKV) {
         this.hconf = hconf;
         this.outKV = outKV;
     }
@@ -106,11 +105,6 @@ public class MockupMapContext implements  MapContext {
 
     @Override
     public String getStatus() {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public float getProgress() {
         throw new NotImplementedException();
     }
 
@@ -175,6 +169,11 @@ public class MockupMapContext implements  MapContext {
     }
 
     @Override
+    public boolean userClassesTakesPrecedence() {
+        throw new NotImplementedException();
+    }
+
+    @Override
     public Class<? extends InputFormat<?, ?>> getInputFormatClass() throws ClassNotFoundException {
         throw new NotImplementedException();
     }
@@ -225,22 +224,12 @@ public class MockupMapContext implements  MapContext {
     }
 
     @Override
-    public boolean getTaskCleanupNeeded() {
-        throw new NotImplementedException();
-    }
-
-    @Override
     public boolean getProfileEnabled() {
         throw new NotImplementedException();
     }
 
     @Override
     public String getProfileParams() {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public IntegerRanges getProfileTaskRange(boolean isMap) {
         throw new NotImplementedException();
     }
 

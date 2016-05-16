@@ -44,10 +44,10 @@ import org.apache.kylin.engine.mr.common.BatchConstants;
 
 /**
  * @author yangli9
- * 
+ *
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class MockupMapContext implements MapContext{
+public class MockupMapContext implements MapContext {
 
     private Configuration hconf;
 
@@ -60,7 +60,7 @@ public class MockupMapContext implements MapContext{
         return new WrappedMapper().getMapContext(new MockupMapContext(hconf, outKV));
     }
 
-    public MockupMapContext(Configuration hconf, Object[] outKV){
+    public MockupMapContext(Configuration hconf, Object[] outKV) {
         this.hconf = hconf;
         this.outKV = outKV;
     }
@@ -171,6 +171,11 @@ public class MockupMapContext implements MapContext{
 
     @Override
     public String getJobName() {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    public boolean userClassesTakesPrecedence() {
         throw new NotImplementedException();
     }
 
