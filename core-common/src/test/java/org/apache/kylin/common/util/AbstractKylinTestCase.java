@@ -40,7 +40,7 @@ public abstract class AbstractKylinTestCase {
             "org.apache.kylin.metadata.cachesync.Broadcaster", //
             "org.apache.kylin.metadata.badquery.BadQueryHistoryManager", //
             "org.apache.kylin.job.impl.threadpool.DistributedScheduler", //
-            "org.apache.kylin.job.manager.ExecutableManager", //
+            "org.apache.kylin.job.execution.ExecutableManager", //
             "org.apache.kylin.job.dao.ExecutableDao" //
     };
 
@@ -67,6 +67,7 @@ public abstract class AbstractKylinTestCase {
                 method.invoke(null);
             } catch (ClassNotFoundException e) {
                 // acceptable because lower module test does have CubeManager etc on classpath
+                System.err.println("Could not find the service to clearCache: " + serviceClass);
             } catch (Exception e) {
                 System.err.println("Error clean up cache " + serviceClass);
                 e.printStackTrace();
